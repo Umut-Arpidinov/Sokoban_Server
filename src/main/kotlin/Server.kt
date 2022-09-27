@@ -28,7 +28,7 @@ class UmutServer {
 
     fun startServer() {
         println("The server has started ")
-        println("Listening on port 4447" )
+        println("Listening on port 5547" )
         try {
             while (true) {
                 val socket = serverSocket!!.accept()
@@ -69,7 +69,7 @@ class SokobanClient : Runnable {
             val outputStream: OutputStream = socket.getOutputStream()
             val out: PrintWriter = PrintWriter(outputStream)
             var answer =
-                file.loadLevelFromFile("C:\\Users\\Redmi\\IdeaProjects\\UmutServer\\src\\main\\kotlin\\levels\\"+level+".sok")
+                file.loadLevelFromFile("C:\\Users\\Redmi\\IdeaProjects\\UmutServer\\src\\main\\kotlin\\levels\\"+"level"+level+".sok")
             if (answer != null){
                 out.println(answer)
                 println("I sent a message to client")
@@ -114,12 +114,11 @@ class FileResource {
             }
             if (array!![index] != '\n') {
                 array!![index] = 'A'
-                index = index + 1
             }
             text = String(array, 0, index)
-            return text
             array = null
             iN.close()
+            return text
 
         } catch (e: FileNotFoundException) {
             println(e)
