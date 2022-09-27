@@ -69,7 +69,7 @@ class SokobanClient : Runnable {
             val outputStream: OutputStream = socket.getOutputStream()
             val out: PrintWriter = PrintWriter(outputStream)
             var answer =
-                file.loadLevelFromFile("C:\\Users\\Redmi\\IdeaProjects\\UmutServer\\src\\main\\kotlin\\levels\\"+"level"+level+".sok")
+                file.loadLevelFromFile("/home/developer/Umut_Arpidinov/Sokoban_Server/src/main/kotlin/levels/level"+level+".sok")
             if (answer != null){
                 out.println(answer)
                 println("I sent a message to client")
