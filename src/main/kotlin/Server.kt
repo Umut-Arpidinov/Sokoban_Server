@@ -64,14 +64,15 @@ class SokobanClient : Runnable {
             val inputStream = socket.getInputStream()
             val inputStreamReader = InputStreamReader(inputStream, "UTF-8")
             val input = BufferedReader(inputStreamReader)
-            var level = input.readLine()
+            val level = input.readLine()
 
             val outputStream: OutputStream = socket.getOutputStream()
             val out: PrintWriter = PrintWriter(outputStream)
-            var answer =
+            val answer =
                 file.loadLevelFromFile("/home/developer/Umut_Arpidinov/Sokoban_Server/src/main/kotlin/levels/level"+level+".sok")
             if (answer != null){
                 out.println(answer)
+		println("level"+level+ ".sok was sent")
                 println("I sent a message to client")
             }else{
                 println("Android_iOS")
@@ -113,10 +114,9 @@ class FileResource {
                 }
             }
             if (array!![index] != '\n') {
-                array!![index] = 'A'
+                array[index] = 'A'
             }
             text = String(array, 0, index)
-            array = null
             iN.close()
             return text
 
